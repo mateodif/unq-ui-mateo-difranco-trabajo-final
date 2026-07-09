@@ -4,6 +4,8 @@ import { WordInput } from './components/WordInput.jsx'
 import { WordChain } from './components/WordChain.jsx'
 import { Scoreboard } from './components/Scoreboard.jsx'
 import { Feedback } from './components/Feedback.jsx'
+import { Hint } from './components/Hint.jsx'
+import { encadenaCon, normalizarPalabra } from './utils/chain.js'
 
 function App() {
   const [cadena, setCadena] = useState([])
@@ -11,9 +13,14 @@ function App() {
   const [error, setError] = useState(null)
 
   function enviarPalabra(palabraIngresada) {
-    const palabra = palabraIngresada.trim().toLowerCase()
+    const palabra = normalizarPalabra(palabraIngresada)
     if (!palabra) return
 
+    const anterior = cadena[cadena.length - 1]
+    if (anterior && !encadenaCon(anterior, palabra)) {
+      setError('Tiene que empezar con la última letra de la palabra anterior.')
+      return
+    }
     if (cadena.includes(palabra)) {
       setError('Esa palabra ya fue utilizada.')
       return
@@ -29,6 +36,7 @@ function App() {
       <h1>Palabras Encadenadas</h1>
       <Scoreboard puntaje={puntaje} cantidadPalabras={cadena.length} />
       <WordChain palabras={cadena} />
+      <Hint cadena={cadena} />
       <Feedback mensaje={error} />
       <WordInput onSubmit={enviarPalabra} />
     </main>
