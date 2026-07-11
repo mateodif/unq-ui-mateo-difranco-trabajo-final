@@ -65,7 +65,7 @@ export function useWordChain() {
         setError('No se pudo validar la palabra, intentá de nuevo.')
       }
     } finally {
-      setValidando(false)
+      if (generacionRef.current === generacion) setValidando(false)
     }
   }
 
