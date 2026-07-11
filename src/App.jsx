@@ -6,6 +6,7 @@ import { Scoreboard } from './components/Scoreboard.jsx'
 import { Feedback } from './components/Feedback.jsx'
 import { Hint } from './components/Hint.jsx'
 import { Timer } from './components/Timer.jsx'
+import { GameOver } from './components/GameOver.jsx'
 
 function App() {
   const {
@@ -16,17 +17,30 @@ function App() {
     tiempoRestante,
     finalizada,
     enviarPalabra,
+    jugarDeNuevo,
   } = useWordChain()
 
   return (
     <main className="app">
       <h1>Palabras Encadenadas</h1>
-      <Scoreboard puntaje={puntaje} cantidadPalabras={cadena.length} />
+      {!finalizada && (
+        <Scoreboard puntaje={puntaje} cantidadPalabras={cadena.length} />
+      )}
       {cadena.length > 0 && !finalizada && <Timer segundos={tiempoRestante} />}
       <WordChain palabras={cadena} />
-      <Hint cadena={cadena} />
-      <Feedback mensaje={error} />
-      <WordInput onSubmit={enviarPalabra} disabled={validando || finalizada} />
+      {finalizada ? (
+        <GameOver
+          puntaje={puntaje}
+          cantidadPalabras={cadena.length}
+          onJugarDeNuevo={jugarDeNuevo}
+        />
+      ) : (
+        <>
+          <Hint cadena={cadena} />
+          <Feedback mensaje={error} />
+          <WordInput onSubmit={enviarPalabra} disabled={validando} />
+        </>
+      )}
     </main>
   )
 }

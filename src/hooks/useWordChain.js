@@ -69,6 +69,16 @@ export function useWordChain() {
     }
   }
 
+  function jugarDeNuevo() {
+    generacionRef.current += 1
+    setCadena([])
+    setPuntaje(0)
+    setError(null)
+    setValidando(false)
+    setTiempoRestante(TURNO_SEGUNDOS)
+    setFinalizada(false)
+  }
+
   return {
     cadena,
     puntaje,
@@ -77,5 +87,6 @@ export function useWordChain() {
     tiempoRestante,
     finalizada,
     enviarPalabra,
+    jugarDeNuevo,
   }
 }
