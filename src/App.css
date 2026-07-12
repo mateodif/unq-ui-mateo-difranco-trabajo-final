@@ -1,3 +1,120 @@
 .app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   text-align: center;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+  margin: 0;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  font-weight: 600;
+}
+
+.timer {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.word-chain {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.word-chain li {
+  background: #ece7fb;
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  text-transform: capitalize;
+  overflow-wrap: anywhere;
+}
+
+.hint {
+  color: #666;
+  font-style: italic;
+  margin: 0;
+}
+
+.word-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.word-input input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.word-input button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: #6c4fd6;
+  color: white;
+  cursor: pointer;
+}
+
+.word-input button:hover:not(:disabled) {
+  background: #5a3fc0;
+}
+
+.word-input button:disabled,
+.word-input input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.feedback {
+  color: #c0392b;
+  margin: 0;
+}
+
+.game-over {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: #f7f5ff;
+}
+
+.game-over button {
+  align-self: center;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: #6c4fd6;
+  color: white;
+  cursor: pointer;
+}
+
+.game-over button:hover {
+  background: #5a3fc0;
+}
+
+@media (max-width: 400px) {
+  .word-input {
+    flex-direction: column;
+  }
 }
