@@ -6,3 +6,11 @@ body {
   margin: 0;
   font-family: system-ui, sans-serif;
 }
+
+h1,
+h2,
+p,
+ol,
+ul {
+  margin: 0;
+}

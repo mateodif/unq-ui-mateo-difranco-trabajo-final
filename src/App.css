@@ -10,7 +10,6 @@
 
 h1 {
   font-size: clamp(1.5rem, 5vw, 2rem);
-  margin: 0;
 }
 
 .scoreboard {
@@ -23,7 +22,6 @@ h1 {
 .timer {
   font-size: 1.25rem;
   font-weight: 700;
-  margin: 0;
 }
 
 .word-chain {
@@ -33,7 +31,6 @@ h1 {
   justify-content: center;
   gap: 0.5rem;
   padding: 0;
-  margin: 0;
 }
 
 .word-chain li {
@@ -47,7 +44,6 @@ h1 {
 .hint {
   color: #666;
   font-style: italic;
-  margin: 0;
 }
 
 .word-input {
@@ -85,8 +81,7 @@ h1 {
 }
 
 .feedback {
-  color: #c0392b;
-  margin: 0;
+  color: #a02318;
 }
 
 .game-over {
