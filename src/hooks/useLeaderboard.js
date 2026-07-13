@@ -6,7 +6,8 @@ const MAX_PUNTAJES = 10
 function leerPuntajes() {
   try {
     const guardado = localStorage.getItem(CLAVE)
-    return guardado ? JSON.parse(guardado) : []
+    const parseado = guardado ? JSON.parse(guardado) : []
+    return Array.isArray(parseado) ? parseado : []
   } catch {
     return []
   }
