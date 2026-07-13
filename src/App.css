@@ -108,6 +108,24 @@ h1 {
   background: #5a3fc0;
 }
 
+.leaderboard {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.leaderboard h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.leaderboard ol {
+  list-style: decimal;
+  text-align: left;
+  max-width: 280px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+}
+
 @media (max-width: 400px) {
   .word-input {
     flex-direction: column;
